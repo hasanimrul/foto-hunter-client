@@ -1,0 +1,50 @@
+[
+    {
+        "service_id": "01",
+        "title": "Soccer Photography",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROTG0vU6HRhgv9DWcPwpy_Ieu_n-wHucFg6A&usqp=CAU",
+        "price": "200.00",
+        "rating": "5.0",
+        "description": " "
+    },
+    {
+        "service_id": "02",
+        "title": "Cycling Photography",
+        "img": "https://miro.medium.com/max/600/0*QRULlqDiVlx-N8Du.jpg",
+        "price": "200.00",
+        "rating": "5.0",
+        "description": " "
+    },
+    {
+        "service_id": "03",
+        "title": "Golf Photography",
+        "img": "https://static5.depositphotos.com/1004061/520/i/450/depositphotos_5200995-stock-photo-playing-golf-club-and-ball.jpg",
+        "price": "200.00",
+        "rating": "5.0",
+        "description": " "
+    },
+    {
+        "service_id": "04",
+        "title": "Tennis Photography",
+        "img": "https://api.time.com/wp-content/uploads/2017/02/world-press-photo-102_cameron-spencer_getty-images.jpg",
+        "price": "200.00",
+        "rating": "5.0",
+        "description": " "
+    },
+    {
+        "service_id": "05",
+        "title": "Basketball Photography",
+        "img": "https://i.pinimg.com/originals/ce/bb/93/cebb930ba74f2bc91d83c69bc560b2ea.jpg",
+        "price": "200.00",
+        "rating": "5.0",
+        "description": " "
+    },
+    {
+        "service_id": "06",
+        "title": "Cricket Photography",
+        "img": "https://resources.pulse.icc-cricket.com/photo-resources/2020/04/11/6926ac7b-2dba-4011-a46b-29264b743b57/Runner-Up-Tom-Jenkins.jpg?width=2000&height=1125",
+        "price": "200.00",
+        "rating": "5.0",
+        "description": " "
+    }
+]
