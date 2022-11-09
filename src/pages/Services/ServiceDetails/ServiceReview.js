@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ServiceReview = ({ review }) => {
-    const { name, details, img } = review;
+    const { reviewerName, message, photourl } = review;
 
     const handleDelete = () => {
 
@@ -14,20 +14,23 @@ const ServiceReview = ({ review }) => {
                 </label>
             </th>
             <td>
-                <img src={img} alt="" />
+                {/* <img src={photourl} className='w-14 h-14 rounded-full' alt="" /> */}
+                <div className="avatar">
+                    <div className="w-14 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                        <img src={photourl} alt='' />
+                    </div>
+                </div>
+
             </td>
             <td>
-                <div className="font-bold">{name}</div>
+                <div className="font-bold">{reviewerName}</div>
             </td>
             <td >
-                <p className=' '>{details}</p>
+                <p className=' '>{message}</p>
             </td>
-            <th>
-                {/* <button
-                    onClick={() => handleStatusUpdate(_id)}
-                    className="btn btn-ghost btn-xs">{status ? status : 'pending'}
-                    </button> */}
-            </th>
+            <td>
+
+            </td>
         </tr>
     );
 };

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import ServiceReview from './ServiceReview';
@@ -10,10 +10,11 @@ const ServiceDetails = () => {
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
-        const name = user?.name;
+        const name = user?.displayName;
         const email = user?.email;
         const photourl = user?.photoURL;
         const message = form.message.value;
+        console.log(name);
 
         const review = {
             service: _id,
@@ -42,6 +43,13 @@ const ServiceDetails = () => {
             })
             .catch(er => console.error(er))
     }
+    const [reviews, setReviews] = useState([]);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/reviews/${_id}`)
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [])
 
     return (
         <div className='break-words	'>
@@ -56,6 +64,30 @@ const ServiceDetails = () => {
                 </div>
             </div>
 
+            {/* review showing ui */}
+
+            <div className=" mb-10 w-full">
+                <h2 className='text-3xl mb-4 text-center'>Review of {title}</h2>
+                <table className="table table-zebra w-full">
+                    <thead className='w-full' >
+                        <tr>
+                            <th>Actions</th>
+                            <th>Image</th>
+                            <th >Name</th>
+                            <th >Review</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            reviews.map(review => <ServiceReview
+                                key={review._id}
+                                review={review}
+                            ></ServiceReview>)
+                        }
+                    </tbody>
+                </table>
+            </div>
+
             {/* review add section */}
 
             <div>
@@ -63,14 +95,22 @@ const ServiceDetails = () => {
                     <form onSubmit={handleSubmit} >
                         <h2 className="text-4xl mb-3">You are about to review "{title}"</h2>
                         <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
-                            <input name="name" type="text" placeholder="Name" defaultValue={user?.displayName} className="input input-ghost w-full  input-bordered" readOnly required />
+                            <label>
+                                Name:
+                                <input name="name" type="text" placeholder="Name" defaultValue={user?.displayName} className="input input-ghost w-full  input-bordered" readOnly required />
+                            </label>
 
-                            <input name="email" type="text" placeholder="Your email" defaultValue={user?.email} className="input input-ghost w-full  input-bordered" readOnly />
+                            <label>
+                                Email Address:
+                                <input name="email" type="text" placeholder="Your email" defaultValue={user?.email} className="input input-ghost w-full  input-bordered" readOnly />
+                            </label>
 
-                            <input name="photourl" type="text" placeholder="photourl" defaultValue={user?.photoURL} className="input input-ghost w-full  input-bordered" readOnly />
 
-                            <input name="phone" type="text" placeholder="Your Phone" className="input input-ghost w-full  input-bordered" />
                         </div>
+                        <label>
+                            PhotoURL:
+                            <input name="photourl" type="text" placeholder="photourl" defaultValue={user?.photoURL} className="input input-ghost w-full  input-bordered" readOnly />
+                        </label>
                         <textarea name="message" className="textarea textarea-bordered textarea-success h-24 w-full my-4" placeholder="Your Review" required></textarea>
 
                         <div className='text-center'>
@@ -82,35 +122,7 @@ const ServiceDetails = () => {
                 }
             </div>
 
-            {/* <div className=" mb-10">
-                <h2 className='text-5xl mb-4'>Give review on {title}</h2>
-                <table className="table w-fit">
-                    <thead>
-                        <tr>
-                            <th>Actions</th>
-                            <th>Image</th>
-                            <th >Name</th>
-                            <th >Review</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            reviews.map(review => <ServiceReview
-                                review={review}
-                            ></ServiceReview>)
-                        }
-                    </tbody>
-                </table>
-            </div>
-            {user?.email ?
-                <div >
-                    <textarea className="textarea textarea-bordered w-full ml-5" placeholder="type here..."></textarea>
 
-                    <button type='submit' className='btn btn-primary ml-5 mb-5'> Submit</button>
-                </div>
-                :
-                <p className='text-3xl text-center my-5'>Please <Link to='/login' className='text-blue-600'>login</Link> to add a review!!!</p>
-            } */}
         </div>
     );
 };
