@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ServicesCard from './ServicesCard';
+import { BsFillBrightnessAltHighFill } from "react-icons/bs";
 
 const Services = () => {
 
@@ -12,8 +13,11 @@ const Services = () => {
             .then(data => setServices(data))
     }, [])
     return (
-        <div>
-            <div className='grid lg:grid-cols-3 md:mx-48 md:my-20 gap-5 lg:mx-20 lg:my-20 mx-28 my-20'>
+        <div className='md:mx-48 md:my-20  lg:mx-20 lg:my-20 mx-28 my-20'>
+            <h2 className='text-4xl text-center'>Services</h2>
+            <div className="divider text-4xl"><BsFillBrightnessAltHighFill /> </div>
+            <div className='grid lg:grid-cols-3 gap-5'>
+
                 {
                     services.map(service => <ServicesCard
                         key={service._id}
