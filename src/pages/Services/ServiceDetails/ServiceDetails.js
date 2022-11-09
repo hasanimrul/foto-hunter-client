@@ -65,35 +65,41 @@ const ServiceDetails = () => {
             </div>
 
             {/* review showing ui */}
+            <div className="divider"></div>
+            <h2 className='text-3xl mb-4 text-center'>Review of {title}</h2>
+            <div className="divider"></div>
+            {reviews?.length > 0 ?
+                <div className=" mb-10 w-full">
 
-            <div className=" mb-10 w-full">
-                <h2 className='text-3xl mb-4 text-center'>Review of {title}</h2>
-                <table className="table table-zebra w-full">
-                    <thead className='w-full' >
-                        <tr>
-                            <th></th>
-                            <th >Name</th>
-                            <th >Review</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            reviews.map(review => <ServiceReview
-                                key={review._id}
-                                review={review}
-                            ></ServiceReview>)
-                        }
-                    </tbody>
-                </table>
-            </div>
+                    <table className="table table-zebra w-full">
+                        <thead className='w-full' >
+                            <tr>
+                                <th></th>
+                                <th >Name</th>
+                                <th >Review</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                reviews.map(review => <ServiceReview
+                                    key={review._id}
+                                    review={review}
+                                ></ServiceReview>)
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                :
+                <h2 className='text-4xl text-center my-28'>No review available to show!!!</h2>
+            }
 
             {/* review add section */}
 
             <div>
                 {user?.email ?
                     <form onSubmit={handleSubmit} >
-                        <h2 className="text-4xl mb-3">You are about to review "{title}"</h2>
+                        <h2 className="text-4xl mb-5">You are about to review "{title}".</h2>
                         <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
                             <label>
                                 Name:

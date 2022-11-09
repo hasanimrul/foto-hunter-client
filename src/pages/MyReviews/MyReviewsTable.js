@@ -2,44 +2,44 @@ import React from 'react';
 import { MdOutlineEdit, MdOutlineDeleteForever } from "react-icons/md";
 
 
-const MyReviewsTable = ({ review }) => {
-    const { reviewerName, photourl, message, serviceName } = review;
+const MyReviewsTable = ({ review, handleDelete }) => {
+    const { reviewerName, photourl, message, serviceName, _id } = review;
 
-    const handleDelete = id => {
 
-    }
     return (
-        <tr>
-            <th>
-                <label>
-                    <button onClick={() => handleDelete()} className='btn btn-ghost'><MdOutlineDeleteForever /></button>
-                </label>
-                <label>
-                    <button className='btn btn-ghost'><MdOutlineEdit /></button>
-                </label>
-            </th>
+        <div>
+            {<tr>
+                <th>
+                    <label>
+                        <button onClick={() => handleDelete(_id)} className='btn btn-ghost'><MdOutlineDeleteForever /></button>
+                    </label>
+                    <label>
+                        <button className='btn btn-ghost'><MdOutlineEdit /></button>
+                    </label>
+                </th>
 
-            <td>
-                <div className="avatar">
-                    <div className="w-14 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                        <img src={photourl} alt='' />
+                <td>
+                    <div className="avatar">
+                        <div className="w-14 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                            <img src={photourl} alt='' />
+                        </div>
                     </div>
-                </div>
 
-            </td>
-            <td>
-                <div className="font-bold">{reviewerName}</div>
-            </td>
-            <td>
-                <div className="font-bold">{serviceName}</div>
-            </td>
-            <td >
-                <p className=' '>"{message}"</p>
-            </td>
-            <td>
+                </td>
+                <td>
+                    <div className="font-bold">{reviewerName}</div>
+                </td>
+                <td>
+                    <div className="font-bold">{serviceName}</div>
+                </td>
+                <td >
+                    <p className=' '>"{message}"</p>
+                </td>
+                <td>
 
-            </td>
-        </tr>
+                </td>
+            </tr>}
+        </div>
     );
 };
 

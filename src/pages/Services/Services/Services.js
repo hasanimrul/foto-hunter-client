@@ -26,7 +26,7 @@ const Services = () => {
                 }
 
             </div>
-            <div className='text-center mb-20'>
+            <div className='text-center my-20'>
                 <Link to='/services' className='btn btn-primary capitalize'>See All Services</Link>
             </div>
         </div>

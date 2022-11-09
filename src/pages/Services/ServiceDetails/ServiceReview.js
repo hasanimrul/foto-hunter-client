@@ -3,13 +3,10 @@ import React from 'react';
 const ServiceReview = ({ review }) => {
     const { reviewerName, message, photourl } = review;
 
-    const handleDelete = () => {
 
-    };
     return (
         <tr>
             <td>
-                {/* <img src={photourl} className='w-14 h-14 rounded-full' alt="" /> */}
                 <div className="avatar">
                     <div className="w-14 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                         <img src={photourl} alt='' />
