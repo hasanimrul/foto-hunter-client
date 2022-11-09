@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import ServiceReview from './ServiceReview';
@@ -38,7 +39,7 @@ const ServiceDetails = () => {
                 console.log(data)
                 if (data.acknowledged) {
                     form.reset();
-                    alert('Review added successfully!!!')
+                    toast.success('Review added successfully!!!')
                 }
             })
             .catch(er => console.error(er))
@@ -49,10 +50,11 @@ const ServiceDetails = () => {
         fetch(`http://localhost:5000/reviews/${_id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
-    }, [reviews])
+    }, [reviews, _id])
 
     return (
         <div className='break-words	'>
+            <div><Toaster /></div>
             <div className="card card-compact bg-gray-800 my-20 shadow-xl mx-20 md:mx-40 lg:mx-80">
                 <figure >
                     <img src={img} className='w-fit md:w-fit md:h-80 lg:h-96' alt="" />

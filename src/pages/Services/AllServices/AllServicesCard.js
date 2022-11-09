@@ -1,4 +1,5 @@
 import React from 'react';
+import { ImStarFull } from 'react-icons/im';
 import { Link } from 'react-router-dom';
 
 const AllServicesCard = ({ service }) => {
@@ -10,11 +11,11 @@ const AllServicesCard = ({ service }) => {
             </figure>
             <div className="card-body">
                 <h2 className="card-title dark:text-white">{title}</h2>
-                <p className='text-gray-400'>{description.slice(0, 100)}...</p>
-                <div className='flex justify-between'>
+                <div className='flex justify-between my-5'>
                     <p className='text-orange-500'>Price: ${price}</p>
-                    <p className='text-white items-end'>Rating: <span className='bg-gray-700 px-1 rounded'>{rating}</span></p>
+                    <p className='text-yellow-400 flex items-center'> <ImStarFull /><ImStarFull /><ImStarFull /><ImStarFull /><ImStarFull /> <span className='bg-gray-700 px-1 text-white rounded ml-2'>5.0</span></p>
                 </div>
+                <p className='text-gray-400'>{description.slice(0, 100)}...</p>
                 <div className="card-actions mx-auto mt-3">
                     <Link to={`/service/${_id}`} className="btn btn-primary capitalize">See Details</Link>
                 </div>
