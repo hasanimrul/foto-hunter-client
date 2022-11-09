@@ -49,7 +49,7 @@ const ServiceDetails = () => {
         fetch(`http://localhost:5000/reviews/${_id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
-    }, [])
+    }, [reviews])
 
     return (
         <div className='break-words	'>
@@ -71,10 +71,10 @@ const ServiceDetails = () => {
                 <table className="table table-zebra w-full">
                     <thead className='w-full' >
                         <tr>
-                            <th>Actions</th>
-                            <th>Image</th>
+                            <th></th>
                             <th >Name</th>
                             <th >Review</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>

@@ -8,11 +8,6 @@ const ServiceReview = ({ review }) => {
     };
     return (
         <tr>
-            <th>
-                <label>
-                    <button onClick={() => handleDelete()} className='btn btn-ghost'>X</button>
-                </label>
-            </th>
             <td>
                 {/* <img src={photourl} className='w-14 h-14 rounded-full' alt="" /> */}
                 <div className="avatar">
