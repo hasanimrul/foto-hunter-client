@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
+import { ImStarFull } from 'react-icons/im';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import ServiceReview from './ServiceReview';
@@ -61,7 +62,10 @@ const ServiceDetails = () => {
                 </figure>
                 <div className="card-body">
                     <h2 className="card-title mx-auto text-white">{title}</h2>
-                    <p className='text-orange-500 mx-auto'>Price: ${price}</p>
+                    <div className='mx-auto flex gap-5 my-5'>
+                        <p className='text-orange-500'>Price: ${price}</p>
+                        <p className='text-yellow-400 flex items-center'> <ImStarFull /><ImStarFull /><ImStarFull /><ImStarFull /><ImStarFull /> <span className='bg-gray-700 px-1 text-white rounded ml-2'>5.0</span></p>
+                    </div>
                     <p>{description}</p>
                 </div>
             </div>
@@ -93,7 +97,7 @@ const ServiceDetails = () => {
                     </table>
                 </div>
                 :
-                <h2 className='text-4xl text-center my-28'>No review available to show!!!</h2>
+                <h2 className='text-lg text-center my-28'>No review available to show!!!</h2>
             }
 
             {/* review add section */}
@@ -126,7 +130,7 @@ const ServiceDetails = () => {
                         </div>
                     </form>
                     :
-                    <p className='text-3xl text-center my-5'>Please <Link to='/login' className='text-blue-600'>login</Link> to add a review!!!</p>
+                    <p className='text-3xl text-center my-5'>Please <Link to='/login' className='text-success btn btn-ghost text-2xl normal-case'>login</Link> to add a review!!!</p>
                 }
             </div>
 

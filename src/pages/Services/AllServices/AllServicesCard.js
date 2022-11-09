@@ -11,7 +11,7 @@ const AllServicesCard = ({ service }) => {
             </figure>
             <div className="card-body">
                 <h2 className="card-title dark:text-white">{title}</h2>
-                <div className='flex justify-between my-5'>
+                <div className='flex mx-auto gap-10 my-5'>
                     <p className='text-orange-500'>Price: ${price}</p>
                     <p className='text-yellow-400 flex items-center'> <ImStarFull /><ImStarFull /><ImStarFull /><ImStarFull /><ImStarFull /> <span className='bg-gray-700 px-1 text-white rounded ml-2'>5.0</span></p>
                 </div>
