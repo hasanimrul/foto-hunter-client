@@ -1,5 +1,6 @@
 import React from 'react';
 import { MdOutlineEdit, MdOutlineDeleteForever } from "react-icons/md";
+import { Link } from 'react-router-dom';
 
 
 const MyReviewsTable = ({ review, handleDelete }) => {
@@ -14,7 +15,7 @@ const MyReviewsTable = ({ review, handleDelete }) => {
                         <button onClick={() => handleDelete(_id)} className='btn btn-ghost'><MdOutlineDeleteForever /></button>
                     </label>
                     <label>
-                        <button className='btn btn-ghost'><MdOutlineEdit /></button>
+                        <Link to={`/review/${_id}`} className='btn btn-ghost'><MdOutlineEdit /></Link>
                     </label>
                 </th>
 

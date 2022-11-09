@@ -8,6 +8,7 @@ import MyReviews from "../../pages/MyReviews/MyReviews";
 import Register from "../../pages/Register/Register";
 import AllServices from "../../pages/Services/AllServices/AllServices";
 import ServiceDetails from "../../pages/Services/ServiceDetails/ServiceDetails";
+import UpdateReview from "../../pages/Services/ServiceDetails/UpdateReview";
 import Services from "../../pages/Services/Services/Services";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
@@ -37,6 +38,11 @@ const router = createBrowserRouter([
                 path: '/service/:id',
                 element: <ServiceDetails></ServiceDetails>,
                 loader: ({ params }) => fetch(`http://localhost:5000/service/${params.id}`)
+            },
+            {
+                path: '/review/:id',
+                element: <UpdateReview></UpdateReview>,
+                loader: ({ params }) => fetch(`http://localhost:5000/reviews/${params.id}`)
             },
             {
                 path: '/myReviews',
