@@ -9,6 +9,9 @@ const ServiceDetails = () => {
 
     const { _id, title, img, price, description } = useLoaderData();
     const { user } = useContext(AuthContext);
+    const [reviews, setReviews] = useState([]);
+    console.log(reviews);
+
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
@@ -16,7 +19,6 @@ const ServiceDetails = () => {
         const email = user?.email;
         const photourl = user?.photoURL;
         const message = form.message.value;
-        console.log(name);
 
         const review = {
             service: _id,
@@ -45,13 +47,13 @@ const ServiceDetails = () => {
             })
             .catch(er => console.error(er))
     }
-    const [reviews, setReviews] = useState([]);
+
 
     useEffect(() => {
         fetch(`http://localhost:5000/reviews/${_id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
-    }, [reviews, _id])
+    }, [])
 
     return (
         <div className='break-words	'>
@@ -102,7 +104,7 @@ const ServiceDetails = () => {
 
             {/* review add section */}
 
-            <div>
+            <div className='mx-28'>
                 {user?.email ?
                     <form onSubmit={handleSubmit} >
                         <h2 className="text-4xl mb-5">You are about to review "{title}".</h2>
