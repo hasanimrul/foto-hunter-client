@@ -321,7 +321,7 @@ const router = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_12__.createBrowserRo
       let {
         params
       } = _ref;
-      return fetch(`http://localhost:5000/service/${params.id}`);
+      return fetch(`https://foto-hunter-server.vercel.app/service/${params.id}`);
     }
   }, {
     path: '/myReviews',
@@ -1777,7 +1777,7 @@ const AllServices = () => {
   _s();
   const [allServices, setAllServices] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    fetch('http://localhost:5000/allservices').then(res => res.json()).then(data => setAllServices(data));
+    fetch('https://foto-hunter-server.vercel.app/allservices').then(res => res.json()).then(data => setAllServices(data));
   }, []);
   return /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxDEV)("div", {
     className: "grid lg:grid-cols-3 md:grid-cols-2 gap-5 m-20",
@@ -2379,7 +2379,7 @@ const Services = () => {
   _s();
   const [services, setServices] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    fetch('http://localhost:5000/services').then(res => res.json()).then(data => setServices(data));
+    fetch('https://foto-hunter-server.vercel.app/services').then(res => res.json()).then(data => setServices(data));
   }, []);
   return /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxDEV)("div", {
     children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxDEV)("div", {

@@ -30,7 +30,7 @@ const Login = () => {
                 }
 
                 // get jwt token
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://foto-hunter-server.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

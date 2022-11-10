@@ -7,11 +7,12 @@ import MyReviewsTable from './MyReviewsTable';
 const MyReviews = () => {
     const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
+    console.log('mt reviews', reviews);
     useTitle('MyReviews');
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+        fetch(`https://foto-hunter-server.vercel.app/reviews?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('token')}`
             }
@@ -25,7 +26,7 @@ const MyReviews = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, want to delete this review?');
         if (proceed) {
-            fetch(`http://localhost:5000/review/${id}`, {
+            fetch(`https://foto-hunter-server.vercel.app/review/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())
