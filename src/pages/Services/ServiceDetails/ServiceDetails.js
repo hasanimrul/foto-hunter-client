@@ -12,7 +12,7 @@ const ServiceDetails = () => {
     const { _id, title, img, price, description } = useLoaderData();
     const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
-    // console.log('reviews', reviews);
+    console.log('reviews', reviews);
 
     const handleSubmit = event => {
         event.preventDefault();
