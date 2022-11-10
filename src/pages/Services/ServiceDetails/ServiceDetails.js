@@ -11,8 +11,8 @@ const ServiceDetails = () => {
 
     const { _id, title, img, price, description } = useLoaderData();
     const { user } = useContext(AuthContext);
-    const [reviews, setReviews] = useState([]);
-    console.log(reviews);
+    const [reviews, setReviews] = useState({});
+    console.log('reviews', reviews);
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -54,8 +54,11 @@ const ServiceDetails = () => {
     useEffect(() => {
         fetch(`http://localhost:5000/reviews/${_id}`)
             .then(res => res.json())
-            .then(data => setReviews(data))
-    }, [])
+            .then(data => {
+                console.log(data)
+                setReviews(data)
+            })
+    }, [reviews])
 
     return (
         <div className='break-words	'>
@@ -78,31 +81,31 @@ const ServiceDetails = () => {
             <div className="divider"></div>
             <h2 className='text-3xl mb-4 text-center'>Review of {title}</h2>
             <div className="divider"></div>
-            {reviews?.length > 0 ?
-                <div className=" mb-10 w-full">
+            {/* {reviews?.length > 0 ? */}
+            <div className=" mb-10 w-full">
 
-                    <table className="table table-zebra w-full">
-                        <thead className='w-full' >
-                            <tr>
-                                <th></th>
-                                <th >Name</th>
-                                <th >Review</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                reviews.map(review => <ServiceReview
-                                    key={review._id}
-                                    review={review}
-                                ></ServiceReview>)
-                            }
-                        </tbody>
-                    </table>
-                </div>
-                :
-                <h2 className='text-lg text-center my-28'>No review available to show!!!</h2>
-            }
+                <table className="table table-zebra w-full">
+                    <thead className='w-full' >
+                        <tr>
+                            <th></th>
+                            <th >Name</th>
+                            <th >Review</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            reviews.map(review => <ServiceReview
+                                key={review._id}
+                                review={review}
+                            ></ServiceReview>)
+                        }
+                    </tbody>
+                </table>
+            </div>
+            {/* : */}
+            <h2 className='text-lg text-center my-28'>No review available to show!!!</h2>
+            {/* } */}
 
             {/* review add section */}
 

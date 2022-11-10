@@ -4,7 +4,7 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
-    useTitle('Login')
+    useTitle('Login');
 
     const { signIn, googleSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -18,16 +18,16 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        console.log(email, password);
+
         signIn(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
+                navigate(from, { replace: true });
                 const currentUser = {
                     email: user.email
                 }
-                console.log(currentUser);
 
                 // get jwt token
                 fetch('http://localhost:5000/jwt', {
@@ -41,7 +41,7 @@ const Login = () => {
                     .then(data => {
                         console.log(data)
                         localStorage.setItem('token', data.token)
-                        navigate(from, { replace: true });
+
                     })
             })
             .catch(err => console.error(err))
@@ -51,7 +51,7 @@ const Login = () => {
         googleSignIn()
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                navigate(from, { replace: true });
             })
             .catch(err => console.error(err))
     }

@@ -55,6 +55,10 @@ const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: '*',
+                element: <h2 className='text-5xl dark:text-white text-center my-48'> 404 error!! This route is not found.</h2>
             }
         ]
     }
