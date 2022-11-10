@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ServicesCard from './ServicesCard';
 import { BsFillBrightnessAltHighFill } from "react-icons/bs";
+import useTitle from '../../../hooks/useTitle';
 
 const Services = () => {
+    useTitle('Services');
 
     const [services, setServices] = useState([]);
 

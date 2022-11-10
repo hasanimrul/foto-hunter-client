@@ -3,9 +3,11 @@ import toast, { Toaster } from 'react-hot-toast';
 import { ImStarFull } from 'react-icons/im';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 import ServiceReview from './ServiceReview';
 
 const ServiceDetails = () => {
+    useTitle('ServiceDetails');
 
     const { _id, title, img, price, description } = useLoaderData();
     const { user } = useContext(AuthContext);

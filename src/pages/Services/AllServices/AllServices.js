@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import AllServicesCard from './AllServicesCard';
 import { BsFillBrightnessAltHighFill } from "react-icons/bs";
+import useTitle from '../../../hooks/useTitle';
 
 const AllServices = () => {
+    useTitle('Services');
 
     const [allServices, setAllServices] = useState([]);
 
