@@ -9,6 +9,7 @@ import ServiceReview from './ServiceReview';
 const ServiceDetails = () => {
     useTitle('ServiceDetails');
 
+
     const { _id, title, img, price, description } = useLoaderData();
     const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
@@ -52,13 +53,13 @@ const ServiceDetails = () => {
 
 
     useEffect(() => {
-        fetch(`https://foto-hunter-server.vercel.app/reviews/${_id}`)
+        fetch(`https://foto-hunter-server.vercel.app/serviceReviews/${_id}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
                 setReviews(data)
             })
-    }, [reviews])
+    }, [reviews, _id])
 
     return (
         <div className='break-words	'>
